@@ -1,0 +1,237 @@
+{
+  "dailyPrayers": [
+    {
+      "id": 1,
+      "title": "Sabah Duası",
+      "arabic": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ",
+      "turkish": "Asbahna ve asbahal mulku lillah",
+      "meaning": "Sabaha eriştik, mülk de Allah'a ait olarak sabaha erişti."
+    },
+    {
+      "id": 2,
+      "title": "İftar Duası",
+      "arabic": "اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ",
+      "turkish": "Allahümme leke sumtü ve ala rızkıke eftartü",
+      "meaning": "Allah'ım! Senin için oruç tuttum ve senin rızkınla orucumu açtım."
+    },
+    {
+      "id": 3,
+      "title": "Şükür Duası",
+      "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+      "turkish": "Elhamdülillahi Rabbil alemin",
+      "meaning": "Hamd, alemlerin Rabbi olan Allah'a mahsustur."
+    },
+    {
+      "id": 4,
+      "title": "İstiğfar",
+      "arabic": "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ",
+      "turkish": "Estağfirullah el azim",
+      "meaning": "Yüce Allah'tan bağışlanma dilerim."
+    },
+    {
+      "id": 5,
+      "title": "Salavat",
+      "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ",
+      "turkish": "Allahümme salli ala Muhammedin ve ala ali Muhammed",
+      "meaning": "Allah'ım! Muhammed'e ve Muhammed'in ailesine salat eyle."
+    },
+    {
+      "id": 6,
+      "title": "Tesbih",
+      "arabic": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+      "turkish": "Sübhanallahi ve bihamdihi",
+      "meaning": "Allah'ı hamd ile tesbih ederim."
+    },
+    {
+      "id": 7,
+      "title": "Tevhid",
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",
+      "turkish": "La ilahe illallahu vahdehu la şerike leh",
+      "meaning": "Allah'tan başka ilah yoktur, O tektir, ortağı yoktur."
+    },
+    {
+      "id": 8,
+      "title": "Bereket Duası",
+      "arabic": "اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا",
+      "turkish": "Allahümme barik lena fima razaktena",
+      "meaning": "Allah'ım! Bize verdiğin rızıkta bereket nasip eyle."
+    },
+    {
+      "id": 9,
+      "title": "Koruma Duası",
+      "arabic": "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ",
+      "turkish": "Bismillahillezi la yedurru measmihi şey'ün",
+      "meaning": "Allah'ın adıyla ki, O'nun adı anıldığında hiçbir şey zarar veremez."
+    },
+    {
+      "id": 10,
+      "title": "Rahmet Duası",
+      "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً",
+      "turkish": "Rabbena atina fiddünya haseneten ve fil ahireti haseneten",
+      "meaning": "Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver."
+    },
+    {
+      "id": 11,
+      "title": "Sabır Duası",
+      "arabic": "رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا",
+      "turkish": "Rabbena efriğ aleyna sabran",
+      "meaning": "Rabbimiz! Üzerimize sabır yağdır."
+    },
+    {
+      "id": 12,
+      "title": "Hidayet Duası",
+      "arabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا",
+      "turkish": "Rabbena la tüziğ kulubena ba'de iz hedeytena",
+      "meaning": "Rabbimiz! Bizi hidayete erdirdikten sonra kalplerimizi eğriltme."
+    },
+    {
+      "id": 13,
+      "title": "Bağışlanma Duası",
+      "arabic": "رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا",
+      "turkish": "Rabbenağfir lena zünubena",
+      "meaning": "Rabbimiz! Günahlarımızı bağışla."
+    },
+    {
+      "id": 14,
+      "title": "Tevekkül Duası",
+      "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+      "turkish": "Hasbunallahu ve ni'mel vekil",
+      "meaning": "Allah bize yeter, O ne güzel vekildir."
+    },
+    {
+      "id": 15,
+      "title": "Akşam Duası",
+      "arabic": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ",
+      "turkish": "Emseyna ve emsel mulku lillah",
+      "meaning": "Akşama eriştik, mülk de Allah'a ait olarak akşama erişti."
+    },
+    {
+      "id": 16,
+      "title": "Kadir Gecesi Duası",
+      "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+      "turkish": "Allahümme inneke afuvvun tuhibbul afve fa'fu anni",
+      "meaning": "Allah'ım! Sen affedicisin, affetmeyi seversin, beni de affet."
+    },
+    {
+      "id": 17,
+      "title": "İlim Duası",
+      "arabic": "رَبِّ زِدْنِي عِلْمًا",
+      "turkish": "Rabbi zidni ilmen",
+      "meaning": "Rabbim! İlmimi artır."
+    },
+    {
+      "id": 18,
+      "title": "Şifa Duası",
+      "arabic": "اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي",
+      "turkish": "Allahümme Rabben nasi ezhebil be'se işfi enteş şafi",
+      "meaning": "Allah'ım! İnsanların Rabbi! Sıkıntıyı gider, şifa ver. Şifa veren ancak sensin."
+    },
+    {
+      "id": 19,
+      "title": "Anne-Baba Duası",
+      "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+      "turkish": "Rabbirhamhuma kema rabbeyani sağiren",
+      "meaning": "Rabbim! Onlara (anne-babama) merhamet et, nasıl ki onlar küçükken beni yetiştirdiler."
+    },
+    {
+      "id": 20,
+      "title": "Rızık Duası",
+      "arabic": "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ",
+      "turkish": "Allahümme ekfini bi helalike an haramik",
+      "meaning": "Allah'ım! Haramından uzak tutarak helalinle bana yetecek kadar ver."
+    },
+    {
+      "id": 21,
+      "title": "Güç ve Kuvvet Duası",
+      "arabic": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+      "turkish": "La havle ve la kuvvete illa billah",
+      "meaning": "Güç ve kuvvet ancak Allah'tandır."
+    },
+    {
+      "id": 22,
+      "title": "Yolculuk Duası",
+      "arabic": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا",
+      "turkish": "Sübhanellezi sehhara lena haza",
+      "meaning": "Bunu bizim hizmetimize veren Allah'ı tesbih ederim."
+    },
+    {
+      "id": 23,
+      "title": "Uyku Öncesi Duası",
+      "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+      "turkish": "Bismike Allahümme emutü ve ahya",
+      "meaning": "Allah'ım! Senin adınla ölür ve dirilirim."
+    },
+    {
+      "id": 24,
+      "title": "Uyanınca Duası",
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا",
+      "turkish": "Elhamdülillahillezi ahyana ba'de ma ematena",
+      "meaning": "Bizi öldürdükten sonra dirilten Allah'a hamd olsun."
+    },
+    {
+      "id": 25,
+      "title": "Camiye Girerken",
+      "arabic": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+      "turkish": "Allahümmeftah li ebvabe rahmetik",
+      "meaning": "Allah'ım! Bana rahmet kapılarını aç."
+    },
+    {
+      "id": 26,
+      "title": "Yemekten Önce",
+      "arabic": "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ",
+      "turkish": "Bismillahi ve ala bereketillah",
+      "meaning": "Allah'ın adıyla ve Allah'ın bereketine sığınarak başlarım."
+    },
+    {
+      "id": 27,
+      "title": "Yemekten Sonra",
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا",
+      "turkish": "Elhamdülillahillezi at'amena ve sekana",
+      "meaning": "Bizi yediren ve içiren Allah'a hamd olsun."
+    },
+    {
+      "id": 28,
+      "title": "Sıkıntı Anında",
+      "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",
+      "turkish": "İnna lillahi ve inna ileyhi raciun",
+      "meaning": "Şüphesiz biz Allah'a aitiz ve O'na döneceğiz."
+    },
+    {
+      "id": 29,
+      "title": "Hayırlı İş Duası",
+      "arabic": "اللَّهُمَّ خِرْ لِي وَاخْتَرْ لِي",
+      "turkish": "Allahümme hir li vehter li",
+      "meaning": "Allah'ım! Benim için hayırlı olanı seç ve nasip et."
+    },
+    {
+      "id": 30,
+      "title": "Cuma Duası",
+      "arabic": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ",
+      "turkish": "Allahümme salli ala seyyidina Muhammedin ve ala alihi ve sahbihi ve sellim",
+      "meaning": "Allah'ım! Efendimiz Muhammed'e, ailesine ve ashabına salat ve selam eyle."
+    }
+  ],
+  "dhikr": [
+    {
+      "id": 1,
+      "arabic": "سُبْحَانَ اللَّهِ",
+      "turkish": "Sübhanallah",
+      "meaning": "Allah'ı tüm noksanlıklardan tenzih ederim.",
+      "count": 33
+    },
+    {
+      "id": 2,
+      "arabic": "الْحَمْدُ لِلَّهِ",
+      "turkish": "Elhamdülillah",
+      "meaning": "Hamd Allah'a mahsustur.",
+      "count": 33
+    },
+    {
+      "id": 3,
+      "arabic": "اللَّهُ أَكْبَرُ",
+      "turkish": "Allahu Ekber",
+      "meaning": "Allah en büyüktür.",
+      "count": 33
+    }
+  ]
+}
