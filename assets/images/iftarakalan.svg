@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="katman_1" data-name="katman 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 608.67 858.3">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#drop-shadow-3);
+        font-family: SnellRoundhand-Black, 'Snell Roundhand';
+        font-size: 124.87px;
+        font-weight: 800;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #eeb105;
+      }
+
+      .cls-3 {
+        fill: #eeb102;
+        filter: url(#drop-shadow-4);
+        font-family: STIXTwoText, 'STIX Two Text';
+        font-size: 149.03px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-4 {
+        stroke: #0d552c;
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-6 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-7 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-8 {
+        filter: url(#drop-shadow-5);
+      }
+
+      .cls-8, .cls-9 {
+        fill: #0d552c;
+      }
+
+      .cls-10 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-5 {
+        stroke: #24213f;
+      }
+    </style>
+    <filter id="drop-shadow-1" x="-8.15" y="-8.1" width="638.88" height="888.48" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".23"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" x="140.17" y="105.18" width="416.4" height="96" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur-2" stdDeviation="5"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".23"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-3" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur-3" stdDeviation="5"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".23"/>
+      <feComposite in2="blur-3" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-4" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur-4" stdDeviation="5"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".23"/>
+      <feComposite in2="blur-4" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-5" x="269.29" y="23.34" width="158.16" height="177.84" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur-5" stdDeviation="5"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".23"/>
+      <feComposite in2="blur-5" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-6">
+    <g>
+      <path class="cls-9" d="M384.94,791.79v-83.89c5.88-1.6,9.42-3.64,9.42-6.09,0-11.43-17.24-21.14-41.12-24.53l-18.74-38.34-18.75,38.34c-23.87,3.39-41.12,13.09-41.12,24.53,0,2.46,3.55,4.49,9.43,6.09v83.89c-5.88,1.61-9.43,3.65-9.43,6.1,0,11.65,17.87,21.48,42.41,24.71l17.45,35.7,17.45-35.7c24.55-3.23,42.41-13.07,42.41-24.71,0-2.45-3.55-4.48-9.42-6.1ZM309.35,793.75c0,3.19-2.57,5.77-5.76,5.77s-5.78-2.58-5.78-5.77v-83.24c0-3.19,2.59-5.78,5.78-5.78s5.76,2.59,5.76,5.78v83.24ZM329.97,793.75c0,3.19-2.58,5.77-5.77,5.77s-5.77-2.58-5.77-5.77v-83.24c0-3.19,2.59-5.78,5.77-5.78s5.77,2.59,5.77,5.78v83.24ZM350.58,793.75c0,3.19-2.59,5.77-5.77,5.77s-5.77-2.58-5.77-5.77v-83.24c0-3.19,2.58-5.78,5.77-5.78s5.77,2.59,5.77,5.78v83.24ZM371.2,793.75c0,3.19-2.6,5.77-5.79,5.77s-5.76-2.58-5.76-5.77v-83.24c0-3.19,2.58-5.78,5.76-5.78s5.79,2.59,5.79,5.78v83.24Z"/>
+      <g>
+        <path class="cls-9" d="M133.24,672.38v-55.45c3.88-1.06,6.23-2.4,6.23-4.03,0-7.55-11.39-13.97-27.18-16.21l-12.39-25.34-12.39,25.34c-15.78,2.24-27.18,8.66-27.18,16.21,0,1.63,2.34,2.97,6.23,4.03v55.45c-3.89,1.06-6.23,2.41-6.23,4.03,0,7.7,11.81,14.2,28.03,16.33l11.54,23.6,11.54-23.6c16.23-2.13,28.03-8.64,28.03-16.33,0-1.62-2.35-2.97-6.23-4.03ZM83.28,673.68c0,2.11-1.7,3.81-3.81,3.81s-3.82-1.7-3.82-3.81v-55.03c0-2.11,1.71-3.82,3.82-3.82s3.81,1.71,3.81,3.82v55.03ZM96.91,673.68c0,2.11-1.71,3.81-3.82,3.81s-3.81-1.7-3.81-3.81v-55.03c0-2.11,1.71-3.82,3.81-3.82s3.82,1.71,3.82,3.82v55.03ZM110.54,673.68c0,2.11-1.71,3.81-3.82,3.81s-3.81-1.7-3.81-3.81v-55.03c0-2.11,1.7-3.82,3.81-3.82s3.82,1.71,3.82,3.82v55.03ZM124.16,673.68c0,2.11-1.71,3.81-3.83,3.81s-3.81-1.7-3.81-3.81v-55.03c0-2.11,1.71-3.82,3.81-3.82s3.83,1.71,3.83,3.82v55.03Z"/>
+        <path class="cls-9" d="M602.43,650.64v-55.45c3.88-1.06,6.23-2.4,6.23-4.03,0-7.56-11.4-13.97-27.18-16.21l-12.39-25.35-12.39,25.35c-15.78,2.24-27.18,8.65-27.18,16.21,0,1.63,2.35,2.97,6.23,4.03v55.45c-3.88,1.07-6.23,2.41-6.23,4.03,0,7.7,11.82,14.2,28.04,16.34l11.54,23.6,11.54-23.6c16.23-2.13,28.03-8.64,28.03-16.34,0-1.62-2.35-2.96-6.23-4.03ZM552.47,651.94c0,2.11-1.7,3.82-3.81,3.82s-3.82-1.7-3.82-3.82v-55.02c0-2.11,1.71-3.82,3.82-3.82s3.81,1.71,3.81,3.82v55.02ZM566.09,651.94c0,2.11-1.7,3.82-3.81,3.82s-3.81-1.7-3.81-3.82v-55.02c0-2.11,1.7-3.82,3.81-3.82s3.81,1.71,3.81,3.82v55.02ZM579.72,651.94c0,2.11-1.71,3.82-3.81,3.82s-3.82-1.7-3.82-3.82v-55.02c0-2.11,1.71-3.82,3.82-3.82s3.81,1.71,3.81,3.82v55.02ZM593.35,651.94c0,2.11-1.72,3.82-3.83,3.82s-3.81-1.7-3.81-3.82v-55.02c0-2.11,1.71-3.82,3.81-3.82s3.83,1.71,3.83,3.82v55.02Z"/>
+      </g>
+      <line class="cls-4" x1="99.91" y1="586.37" x2="99.91" y2="488.03"/>
+      <line class="cls-4" x1="334.5" y1="671.27" x2="334.5" y2="572.93"/>
+      <line class="cls-5" x1="569.09" y1="563.93" x2="569.09" y2="410.46"/>
+    </g>
+    <path class="cls-9" d="M337.39,532.91c-149.52,0-270.73-121.21-270.73-270.73C66.66,136.06,152.9,30.08,269.62,0,118.4,14.02,0,141.24,0,296.13c0,164.27,133.16,297.43,297.43,297.43,138.53,0,254.93-94.7,288.01-222.89-41.83,95.5-137.12,162.24-248.05,162.24Z"/>
+  </g>
+  <g class="cls-7">
+    <polygon class="cls-2" points="182.81 113.29 193.49 134.94 217.39 138.41 200.1 155.26 204.19 179.05 182.81 167.82 161.46 179.05 165.54 155.26 148.25 138.41 172.13 134.94 182.81 113.29"/>
+    <polygon class="cls-2" points="499.84 113.29 510.52 134.94 534.41 138.41 517.13 155.26 521.21 179.05 499.84 167.82 478.48 179.05 482.56 155.26 465.27 138.41 489.16 134.94 499.84 113.29"/>
+  </g>
+  <text class="cls-1" transform="translate(148.25 434.89)"><tspan x="0" y="0">Kalan</tspan></text>
+  <text class="cls-3" transform="translate(169.93 312.57)"><tspan x="0" y="0">İfta</tspan><tspan class="cls-10" x="217.43" y="0">r</tspan><tspan x="271.82" y="0">a</tspan></text>
+  <polygon class="cls-8" points="341.33 31.45 359.78 73.3 405.24 68.35 378.23 105.25 405.24 142.15 359.78 137.2 341.33 179.05 322.88 137.2 277.43 142.15 304.43 105.25 277.43 68.35 322.88 73.3 341.33 31.45"/>
+</svg>

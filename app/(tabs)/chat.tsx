@@ -9,11 +9,9 @@ import {
   Platform,
   ActivityIndicator,
 } from 'react-native';
-import { useRouter } from 'expo-router';
 import { useChatStore } from '../../src/stores/chatStore';
-import { useSettingsStore } from '../../src/stores/settingsStore';
 import { ChatBubble } from '../../src/components/ChatBubble';
-import { isGeminiInitialized } from '../../src/services/geminiApi';
+import { isAIConfigured } from '../../src/services/aiService';
 
 const QUICK_PROMPTS = [
   { label: '🍲 İftar Menüsü', prompt: 'Bugün için pratik bir iftar menüsü önerir misin?' },
@@ -23,14 +21,12 @@ const QUICK_PROMPTS = [
 ];
 
 export default function ChatScreen() {
-  const router = useRouter();
   const [inputText, setInputText] = useState('');
   const flatListRef = useRef<FlatList>(null);
 
   const { messages, isLoading, error, sendMessage, clearChat, clearError } = useChatStore();
-  const { geminiApiKey } = useSettingsStore();
 
-  const isConfigured = isGeminiInitialized() && geminiApiKey;
+  const isConfigured = isAIConfigured();
 
   useEffect(() => {
     // Yeni mesaj geldiğinde aşağı scroll
@@ -59,29 +55,11 @@ export default function ChatScreen() {
       <View className="flex-1 items-center justify-center bg-gray-100 dark:bg-gray-900 p-6">
         <Text className="text-5xl mb-4">🤖</Text>
         <Text className="text-xl font-bold text-gray-800 dark:text-gray-200 text-center mb-2">
-          AI Asistanı Yapılandır
+          AI Asistanı Şu An Kullanılamıyor
         </Text>
         <Text className="text-gray-600 dark:text-gray-400 text-center mb-6">
-          Ramazan asistanını kullanmak için Google Gemini API anahtarınızı eklemeniz gerekiyor.
+          Ramazan asistanı şu an bakımda. Lütfen daha sonra tekrar deneyin.
         </Text>
-        <TouchableOpacity
-          onPress={() => router.push('/settings')}
-          className="bg-primary-500 px-6 py-3 rounded-xl"
-        >
-          <Text className="text-white font-semibold">Ayarlara Git</Text>
-        </TouchableOpacity>
-
-        <View className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 w-full">
-          <Text className="text-blue-700 dark:text-blue-300 font-medium mb-2">
-            📝 API Anahtarı Nasıl Alınır?
-          </Text>
-          <Text className="text-blue-600 dark:text-blue-400 text-sm">
-            1. Google AI Studio'ya gidin{'\n'}
-            2. Ücretsiz hesap oluşturun{'\n'}
-            3. "Get API key" butonuna tıklayın{'\n'}
-            4. Anahtarı kopyalayıp ayarlara yapıştırın
-          </Text>
-        </View>
       </View>
     );
   }

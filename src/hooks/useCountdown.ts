@@ -15,7 +15,13 @@ export function useCountdown({ targetTime, onComplete, showNotification = false 
   const [isComplete, setIsComplete] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isCompleteRef = useRef(false);
+  const onCompleteRef = useRef(onComplete);
   const { countdownNotification } = useSettingsStore();
+
+  // onComplete ref'ini güncel tut
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   const updateTime = useCallback(() => {
     if (!targetTime) {
@@ -28,7 +34,7 @@ export function useCountdown({ targetTime, onComplete, showNotification = false 
     if (remaining.isNegative && !isCompleteRef.current) {
       isCompleteRef.current = true;
       setIsComplete(true);
-      onComplete?.();
+      onCompleteRef.current?.();
       dismissCountdownNotification();
     } else if (!remaining.isNegative) {
       setTimeRemaining(remaining);
@@ -42,7 +48,7 @@ export function useCountdown({ targetTime, onComplete, showNotification = false 
         updateCountdownNotification(remaining.hours, remaining.minutes, remaining.seconds);
       }
     }
-  }, [targetTime, onComplete, showNotification, countdownNotification]);
+  }, [targetTime, showNotification, countdownNotification]);
 
   useEffect(() => {
     // İlk güncelleme

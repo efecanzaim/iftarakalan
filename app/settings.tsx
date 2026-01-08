@@ -5,11 +5,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Switch,
-  TextInput,
   Alert,
-  Linking,
 } from 'react-native';
-import { useRouter } from 'expo-router';
 import { useSettingsStore } from '../src/stores/settingsStore';
 import { usePrayerStore } from '../src/stores/prayerStore';
 import { cancelAllScheduledNotifications } from '../src/services/notificationService';
@@ -25,7 +22,6 @@ const CALCULATION_METHOD_NAMES: Record<number, string> = {
 };
 
 export default function SettingsScreen() {
-  const router = useRouter();
   const {
     calculationMethod,
     notificationsBefore,
@@ -33,7 +29,6 @@ export default function SettingsScreen() {
     imsakNotification,
     prayerNotifications,
     countdownNotification,
-    geminiApiKey,
     darkMode,
     setCalculationMethod,
     setNotificationsBefore,
@@ -41,22 +36,13 @@ export default function SettingsScreen() {
     toggleImsakNotification,
     togglePrayerNotifications,
     toggleCountdownNotification,
-    setGeminiApiKey,
     toggleDarkMode,
     resetSettings,
   } = useSettingsStore();
 
   const { location, refreshAll } = usePrayerStore();
 
-  const [showApiKeyInput, setShowApiKeyInput] = useState(false);
-  const [tempApiKey, setTempApiKey] = useState(geminiApiKey);
   const [showMethodPicker, setShowMethodPicker] = useState(false);
-
-  const handleSaveApiKey = () => {
-    setGeminiApiKey(tempApiKey);
-    setShowApiKeyInput(false);
-    Alert.alert('Başarılı', 'API anahtarı kaydedildi.');
-  };
 
   const handleResetSettings = () => {
     Alert.alert(
@@ -217,59 +203,6 @@ export default function SettingsScreen() {
             ))}
           </View>
         </View>
-      </View>
-
-      {/* AI Ayarları */}
-      <View className="bg-white dark:bg-gray-800 mx-4 mt-4 rounded-2xl p-4">
-        <Text className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-          AI ASİSTAN
-        </Text>
-
-        <TouchableOpacity
-          onPress={() => setShowApiKeyInput(!showApiKeyInput)}
-          className="flex-row items-center justify-between py-2"
-        >
-          <View className="flex-1">
-            <Text className="text-gray-800 dark:text-gray-100">Gemini API Anahtarı</Text>
-            <Text className="text-sm text-gray-500 dark:text-gray-400">
-              {geminiApiKey ? '••••••••••••' + geminiApiKey.slice(-4) : 'Yapılandırılmamış'}
-            </Text>
-          </View>
-          <Text className="text-primary-600 dark:text-primary-400">
-            {showApiKeyInput ? 'Kapat' : 'Düzenle'}
-          </Text>
-        </TouchableOpacity>
-
-        {showApiKeyInput && (
-          <View className="mt-3">
-            <TextInput
-              value={tempApiKey}
-              onChangeText={setTempApiKey}
-              placeholder="API anahtarınızı yapıştırın"
-              placeholderTextColor="#9ca3af"
-              secureTextEntry
-              className="bg-gray-100 dark:bg-gray-700 rounded-xl px-4 py-3 text-gray-800 dark:text-gray-100"
-            />
-            <View className="flex-row mt-3 gap-2">
-              <TouchableOpacity
-                onPress={() =>
-                  Linking.openURL('https://aistudio.google.com/apikey')
-                }
-                className="flex-1 bg-gray-200 dark:bg-gray-700 py-3 rounded-xl"
-              >
-                <Text className="text-center text-gray-700 dark:text-gray-300">
-                  Anahtar Al
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={handleSaveApiKey}
-                className="flex-1 bg-primary-500 py-3 rounded-xl"
-              >
-                <Text className="text-center text-white font-semibold">Kaydet</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
       </View>
 
       {/* Görünüm */}

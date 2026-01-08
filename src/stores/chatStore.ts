@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { chat, ChatMessage } from '../services/geminiApi';
+import { chat, ChatMessage } from '../services/aiService';
 
 interface ChatState {
   messages: ChatMessage[];

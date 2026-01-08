@@ -1,26 +1,37 @@
-import * as Notifications from 'expo-notifications';
-import * as TaskManager from 'expo-task-manager';
-import * as BackgroundFetch from 'expo-background-fetch';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 
-const BACKGROUND_NOTIFICATION_TASK = 'BACKGROUND_NOTIFICATION_TASK';
 const COUNTDOWN_NOTIFICATION_ID = 'iftar-countdown';
 
 // Expo Go'da mı çalışıyoruz kontrol et
-const isExpoGo = Constants.appOwnership === 'expo';
+const isExpoGo = Constants.executionEnvironment === 'storeClient';
 
-// Bildirim davranışını ayarla (sadece Expo Go dışında)
-if (!isExpoGo) {
-  Notifications.setNotificationHandler({
-    handleNotification: async () => ({
-      shouldShowAlert: true,
-      shouldPlaySound: true,
-      shouldSetBadge: false,
-      shouldShowBanner: true,
-      shouldShowList: true,
-    }),
-  });
+// Notifications modülünü lazy load et
+type NotificationsModule = typeof import('expo-notifications');
+let notificationsModule: NotificationsModule | null = null;
+let isInitialized = false;
+
+async function getNotifications(): Promise<NotificationsModule | null> {
+  if (isExpoGo) return null;
+
+  if (!notificationsModule) {
+    notificationsModule = await import('expo-notifications');
+
+    if (!isInitialized) {
+      // Bildirim davranışını ayarla
+      notificationsModule.setNotificationHandler({
+        handleNotification: async () => ({
+          shouldShowAlert: true,
+          shouldPlaySound: true,
+          shouldSetBadge: false,
+          shouldShowBanner: true,
+          shouldShowList: true,
+        }),
+      });
+      isInitialized = true;
+    }
+  }
+  return notificationsModule;
 }
 
 /**
@@ -34,12 +45,15 @@ export async function requestNotificationPermission(): Promise<boolean> {
   }
 
   try {
-    const { status: existingStatus } = await Notifications.getPermissionsAsync();
+    const notif = await getNotifications();
+    if (!notif) return false;
+
+    const { status: existingStatus } = await notif.getPermissionsAsync();
 
     let finalStatus = existingStatus;
 
     if (existingStatus !== 'granted') {
-      const { status } = await Notifications.requestPermissionsAsync();
+      const { status } = await notif.requestPermissionsAsync();
       finalStatus = status;
     }
 
@@ -64,25 +78,28 @@ export async function requestNotificationPermission(): Promise<boolean> {
  * Android için bildirim kanallarını oluştur
  */
 async function createNotificationChannels(): Promise<void> {
-  await Notifications.setNotificationChannelAsync('prayer-times', {
+  const notif = await getNotifications();
+  if (!notif) return;
+
+  await notif.setNotificationChannelAsync('prayer-times', {
     name: 'Namaz Vakitleri',
-    importance: Notifications.AndroidImportance.HIGH,
+    importance: notif.AndroidImportance.HIGH,
     vibrationPattern: [0, 250, 250, 250],
     lightColor: '#1a5f4a',
     sound: 'default',
   });
 
-  await Notifications.setNotificationChannelAsync('iftar-countdown', {
+  await notif.setNotificationChannelAsync('iftar-countdown', {
     name: 'İftar Geri Sayımı',
-    importance: Notifications.AndroidImportance.LOW,
+    importance: notif.AndroidImportance.LOW,
     vibrationPattern: [0],
     lightColor: '#c9a227',
     sound: undefined,
   });
 
-  await Notifications.setNotificationChannelAsync('reminders', {
+  await notif.setNotificationChannelAsync('reminders', {
     name: 'Hatırlatmalar',
-    importance: Notifications.AndroidImportance.HIGH,
+    importance: notif.AndroidImportance.HIGH,
     vibrationPattern: [0, 250, 250, 250],
     lightColor: '#1a5f4a',
     sound: 'default',
@@ -98,8 +115,11 @@ export async function schedulePrayerNotification(
   minutesBefore: number = 0
 ): Promise<string | null> {
   if (isExpoGo) return null;
-  
+
   try {
+    const notif = await getNotifications();
+    if (!notif) return null;
+
     const notificationTime = new Date(prayerTime);
     notificationTime.setMinutes(notificationTime.getMinutes() - minutesBefore);
 
@@ -108,7 +128,7 @@ export async function schedulePrayerNotification(
       return null;
     }
 
-    const identifier = await Notifications.scheduleNotificationAsync({
+    const identifier = await notif.scheduleNotificationAsync({
       content: {
         title: minutesBefore > 0 ? `${prayerName} vaktine ${minutesBefore} dakika` : `${prayerName} vakti girdi`,
         body: minutesBefore > 0
@@ -118,7 +138,7 @@ export async function schedulePrayerNotification(
         data: { type: 'prayer', prayer: prayerName },
       },
       trigger: {
-        type: Notifications.SchedulableTriggerInputTypes.DATE,
+        type: notif.SchedulableTriggerInputTypes.DATE,
         date: notificationTime,
         channelId: 'prayer-times',
       },
@@ -140,8 +160,11 @@ export async function scheduleReminderNotification(
   minutesBefore: number
 ): Promise<string | null> {
   if (isExpoGo) return null;
-  
+
   try {
+    const notif = await getNotifications();
+    if (!notif) return null;
+
     const notificationTime = new Date(time);
     notificationTime.setMinutes(notificationTime.getMinutes() - minutesBefore);
 
@@ -154,7 +177,7 @@ export async function scheduleReminderNotification(
       ? `İftar vaktine ${minutesBefore} dakika kaldı!`
       : `İmsak vaktine ${minutesBefore} dakika kaldı, sahura kalkmayı unutmayın!`;
 
-    const identifier = await Notifications.scheduleNotificationAsync({
+    const identifier = await notif.scheduleNotificationAsync({
       content: {
         title,
         body,
@@ -162,7 +185,7 @@ export async function scheduleReminderNotification(
         data: { type: 'reminder', reminderType: type },
       },
       trigger: {
-        type: Notifications.SchedulableTriggerInputTypes.DATE,
+        type: notif.SchedulableTriggerInputTypes.DATE,
         date: notificationTime,
         channelId: 'reminders',
       },
@@ -183,12 +206,15 @@ export async function showCountdownNotification(
   body: string
 ): Promise<void> {
   if (isExpoGo) return;
-  
-  try {
-    // Önce mevcut bildirim varsa iptal et
-    await Notifications.dismissNotificationAsync(COUNTDOWN_NOTIFICATION_ID);
 
-    await Notifications.scheduleNotificationAsync({
+  try {
+    const notif = await getNotifications();
+    if (!notif) return;
+
+    // Önce mevcut bildirim varsa iptal et
+    await notif.dismissNotificationAsync(COUNTDOWN_NOTIFICATION_ID);
+
+    await notif.scheduleNotificationAsync({
       identifier: COUNTDOWN_NOTIFICATION_ID,
       content: {
         title,
@@ -221,9 +247,12 @@ export async function updateCountdownNotification(
  */
 export async function dismissCountdownNotification(): Promise<void> {
   if (isExpoGo) return;
-  
+
   try {
-    await Notifications.dismissNotificationAsync(COUNTDOWN_NOTIFICATION_ID);
+    const notif = await getNotifications();
+    if (!notif) return;
+
+    await notif.dismissNotificationAsync(COUNTDOWN_NOTIFICATION_ID);
   } catch (error) {
     console.error('Error dismissing countdown notification:', error);
   }
@@ -234,9 +263,12 @@ export async function dismissCountdownNotification(): Promise<void> {
  */
 export async function cancelAllScheduledNotifications(): Promise<void> {
   if (isExpoGo) return;
-  
+
   try {
-    await Notifications.cancelAllScheduledNotificationsAsync();
+    const notif = await getNotifications();
+    if (!notif) return;
+
+    await notif.cancelAllScheduledNotificationsAsync();
   } catch (error) {
     console.error('Error canceling notifications:', error);
   }
@@ -246,23 +278,31 @@ export async function cancelAllScheduledNotifications(): Promise<void> {
  * Bildirim listener'ları ayarla
  */
 export function setupNotificationListeners(
-  onReceived?: (notification: Notifications.Notification) => void,
-  onResponse?: (response: Notifications.NotificationResponse) => void
+  onReceived?: (notification: any) => void,
+  onResponse?: (response: any) => void
 ): () => void {
   if (isExpoGo) {
     return () => {}; // Boş cleanup fonksiyonu
   }
 
-  const receivedSubscription = Notifications.addNotificationReceivedListener((notification) => {
-    onReceived?.(notification);
-  });
+  let receivedSubscription: { remove: () => void } | null = null;
+  let responseSubscription: { remove: () => void } | null = null;
 
-  const responseSubscription = Notifications.addNotificationResponseReceivedListener((response) => {
-    onResponse?.(response);
+  // Async olarak listener'ları ayarla
+  getNotifications().then((notif) => {
+    if (!notif) return;
+
+    receivedSubscription = notif.addNotificationReceivedListener((notification) => {
+      onReceived?.(notification);
+    });
+
+    responseSubscription = notif.addNotificationResponseReceivedListener((response) => {
+      onResponse?.(response);
+    });
   });
 
   return () => {
-    receivedSubscription.remove();
-    responseSubscription.remove();
+    receivedSubscription?.remove();
+    responseSubscription?.remove();
   };
 }

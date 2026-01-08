@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CALCULATION_METHODS, DEFAULT_SETTINGS } from '../utils/constants';
-import { initializeGemini } from '../services/geminiApi';
 
 interface SettingsState {
   // Hesaplama ayarları
@@ -15,9 +14,6 @@ interface SettingsState {
   prayerNotifications: boolean;
   countdownNotification: boolean;
 
-  // AI ayarları
-  geminiApiKey: string;
-
   // Tema
   darkMode: boolean;
 
@@ -28,14 +24,13 @@ interface SettingsState {
   toggleImsakNotification: () => void;
   togglePrayerNotifications: () => void;
   toggleCountdownNotification: () => void;
-  setGeminiApiKey: (key: string) => void;
   toggleDarkMode: () => void;
   resetSettings: () => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       // Initial state
       calculationMethod: DEFAULT_SETTINGS.calculationMethod,
       notificationsBefore: DEFAULT_SETTINGS.notificationsBefore,
@@ -43,7 +38,6 @@ export const useSettingsStore = create<SettingsState>()(
       imsakNotification: DEFAULT_SETTINGS.imsakNotification,
       prayerNotifications: DEFAULT_SETTINGS.prayerNotifications,
       countdownNotification: true,
-      geminiApiKey: '',
       darkMode: false,
 
       // Actions
@@ -63,13 +57,6 @@ export const useSettingsStore = create<SettingsState>()(
       toggleCountdownNotification: () =>
         set((state) => ({ countdownNotification: !state.countdownNotification })),
 
-      setGeminiApiKey: (key) => {
-        set({ geminiApiKey: key });
-        if (key) {
-          initializeGemini(key);
-        }
-      },
-
       toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
 
       resetSettings: () =>
@@ -86,12 +73,6 @@ export const useSettingsStore = create<SettingsState>()(
     {
       name: 'settings-storage',
       storage: createJSONStorage(() => AsyncStorage),
-      onRehydrateStorage: () => (state) => {
-        // Uygulama başladığında API key'i yükle
-        if (state?.geminiApiKey) {
-          initializeGemini(state.geminiApiKey);
-        }
-      },
     }
   )
 );
